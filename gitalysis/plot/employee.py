@@ -2,8 +2,8 @@
 import os
 from datetime import timedelta
 
-from gitalizer.helpers.db import get_user_commits_from_repositories
-from .plotting import (
+from gitalysis.helpers.db import get_user_commits_from_repositories
+from gitalysis.plot.plotting import (
     CommitTimeline,
     CommitPunchcard,
     MissingTime,

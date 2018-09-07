@@ -1,7 +1,7 @@
 """The main module for plotting user related graphs."""
 from datetime import timedelta
 
-from .plotting import (
+from gitalysis.plot.plotting import (
     CommitSimilarity,
     MissingTimeComparison,
 )

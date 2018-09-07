@@ -3,26 +3,27 @@ import os
 import sys
 from sqlalchemy import or_
 
-from gitalizer.helper import get_config
+from gitalizer.helper.config import config
 from gitalizer.extensions import logger
 from gitalizer.models.contributor import Contributor
-from .user import (
+
+from gitalysis.plot.user import (
     plot_user_punchcard,
     plot_user_travel_path,
 )
-from .employee import (
+from gitalysis.plot.employee import (
     plot_employee_timeline_with_holiday,
     plot_employee_punchcard,
     plot_employee_missing_time,
 )
-from .comparison import (
+from gitalysis.plot.comparison import (
     plot_compare_employee_missing_time,
 )
 
 
 def plot_user(login, session):
     """Plot all user related graphs."""
-    plot_dir = get_config().PLOT_DIR
+    plot_dir = config['plotting']['plot_dir']
     if not os.path.exists(plot_dir):
         os.mkdir(plot_dir)
 
@@ -45,7 +46,7 @@ def plot_user(login, session):
 
 def plot_employee(login, repositories, session):
     """Plot all user related graphs."""
-    plot_dir = get_config().PLOT_DIR
+    plot_dir = config['plotting']['plot_dir']
     path = os.path.join(plot_dir, login.lower(), 'employee')
     os.makedirs(path, exist_ok=True)
 
@@ -76,7 +77,7 @@ def plot_employee(login, repositories, session):
 
 def plot_comparison(logins, repositories, session):
     """Compare multiple persons for specific repositories."""
-    plot_dir = get_config().PLOT_DIR
+    plot_dir = config['plotting']['plot_dir']
     path = os.path.join(plot_dir, 'comparison')
     os.makedirs(path, exist_ok=True)
 

@@ -3,8 +3,8 @@ import math
 import matplotlib.pyplot as plt
 from pprint import pprint
 
-from gitalizer.plot.plotting import CommitPunchcard
-from gitalizer.helpers.db import get_user_commits_from_repositories
+from gitalysis.plot.plotting import CommitPunchcard
+from gitalysis.helpers.db import get_user_commits_from_repositories
 
 
 class CommitSimilarity():

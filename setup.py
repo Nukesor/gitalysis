@@ -11,11 +11,15 @@ setup(
     url='http://github.com/nukesor/gitalizer',
     license='MIT',
     install_requires=[
+        # Models, Database and config
+        'gitalizer~=0.1',
+
         # Time handling
         'pendulum~=1.4',
         'pytzdata~=2018.3',
 
         # Location handling
+        'cython~=0.28',
         'cartopy~=0.16',
         'pycountry~=18.2',
         'geopy',
@@ -41,7 +45,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'gitalizer=gitalizer:cli',
+            'gitalysis=gitalysis:cli',
         ],
     }
 )

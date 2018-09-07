@@ -8,13 +8,14 @@ from datetime import timedelta, datetime
 from gitalizer.extensions import logger
 from gitalizer.helpers.parallel import new_session, create_chunks
 from gitalizer.plot.plotting import TravelPath
-from gitalizer.helpers.parallel.list_manager import ListManager
 from gitalizer.models import (
     AnalysisResult,
     Commit,
     Contributor,
     Email,
 )
+
+from gitalysis.helpers.list_manager import ListManager
 
 timezone_evaluations = [
     {"search": ['Germany', 'Deutschland'], "timezone": 'Europe/Berlin'},

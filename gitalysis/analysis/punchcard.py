@@ -13,18 +13,17 @@ from sklearn.cluster import (
 from sqlalchemy import or_, func
 from sqlalchemy.orm import joinedload
 from datetime import timedelta, datetime
-
-from gitalizer.helper import get_config
+from gitalizer.helpers.config import config
 from gitalizer.extensions import logger
 from gitalizer.helpers.parallel import new_session, create_chunks
-from gitalizer.plot.plotting import CommitPunchcard
-from gitalizer.helpers.parallel.list_manager import ListManager
 from gitalizer.models import (
     AnalysisResult,
     Commit,
     Contributor,
     Email,
 )
+
+from gitalysis.plot.plotting import CommitPunchcard
 
 
 def analyse_punch_card(existing, method,
@@ -133,13 +132,13 @@ def analyse_punch_card(existing, method,
 
     contributor_by_label = {}
     for index, label in enumerate(labels):
-        if contributor_by_label.get(label) == None:
+        if contributor_by_label.get(label) is None:
             contributor_by_label[label] = []
 
         contributor_by_label[label].append(contributors[index].login)
 
     # Prepare the plot dir for prototype plotting
-    plot_dir = get_config().PLOT_DIR
+    plot_dir = config['plotting']['plot_dir']
     plot_dir = os.path.join(plot_dir, 'analysis', 'analyse_punch', method)
 
     if not os.path.exists(plot_dir):
