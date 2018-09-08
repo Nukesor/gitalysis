@@ -10,7 +10,7 @@ from gitalysis.helpers.worker import Worker
 class ListManager():
     """Class for managing various multiprocessing tasks."""
 
-    def __init__(self, task_type: str, tasks: list, sub_manager: None):
+    def __init__(self, task_type: str, tasks: list, sub_manager: None = None):
         """Create a new manager."""
         self.tasks = tasks
         self.task_type = task_type
@@ -20,7 +20,7 @@ class ListManager():
         self.task_queue = multiprocessing.JoinableQueue()
         self.result_queue = multiprocessing.Queue()
         self.results = []
-        self.consumer_count = config['aggregator']['git_commit_scan_threads']
+        self.consumer_count = int(config['aggregator']['git_commit_scan_threads'])
 
     def start(self):
         """Initialize workers and add initial tasks."""

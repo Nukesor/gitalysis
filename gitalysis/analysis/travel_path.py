@@ -7,7 +7,6 @@ from datetime import timedelta, datetime
 
 from gitalizer.extensions import logger
 from gitalizer.helpers.parallel import new_session, create_chunks
-from gitalizer.plot.plotting import TravelPath
 from gitalizer.models import (
     AnalysisResult,
     Commit,
@@ -15,6 +14,7 @@ from gitalizer.models import (
     Email,
 )
 
+from gitalysis.plot.plotting import TravelPath
 from gitalysis.helpers.list_manager import ListManager
 
 timezone_evaluations = [

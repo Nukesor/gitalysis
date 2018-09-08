@@ -24,6 +24,7 @@ from gitalizer.models import (
 )
 
 from gitalysis.plot.plotting import CommitPunchcard
+from gitalysis.helpers.list_manager import ListManager
 
 
 def analyse_punch_card(existing, method,

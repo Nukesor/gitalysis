@@ -3,7 +3,7 @@ import os
 import sys
 from sqlalchemy import or_
 
-from gitalizer.helper.config import config
+from gitalizer.helpers.config import config
 from gitalizer.extensions import logger
 from gitalizer.models.contributor import Contributor
 

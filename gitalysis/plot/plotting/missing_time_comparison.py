@@ -14,11 +14,12 @@ week_days = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun']
 class MissingTimeComparison():
     """Compute a timeline with missing time."""
 
-    def __init__(self, user, repositories, delta, path, title):
+    def __init__(self, user, repositories, delta, path, title, session):
         """Create new missing time plotter."""
         self.user = user
         self.repositories = repositories
         self.delta = delta
+        self.session = session
 
         self.scatter_draw = [
             [datetime.utcnow()-self.delta, datetime.utcnow()],
@@ -42,6 +43,7 @@ class MissingTimeComparison():
             commits = get_user_commits_from_repositories(
                 user,
                 self.repositories,
+                self.session,
                 self.delta,
             )
             plotter = MissingTime(commits, '', '')

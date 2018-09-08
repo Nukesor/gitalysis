@@ -2,7 +2,7 @@ import sys
 import click
 from gitalizer.extensions import logger
 
-from gitalizer.analysis import (
+from gitalysis.analysis import (
     analyse_travel_path,
     analyse_punch_card,
 )
