@@ -3,6 +3,7 @@ import click
 from gitalizer.extensions import logger
 from gitalizer.helpers.parallel import new_session
 
+from gitalysis.cli.eat_all import OptionEatAll
 from gitalysis.plot import (
     plot_user,
     plot_employee,
@@ -42,14 +43,16 @@ def user_for_repositories(login, repositories):
 
 
 @click.command()
-@click.argument('logins')
-@click.argument('repositories', nargs=-1)
-def comparison(logins, repositories):
+@click.argument('--users', cls=OptionEatAll)
+@click.argument('--repos', cls=OptionEatAll)
+def comparison(users, repos):
     """Get statistics of several user for specific repositories."""
     # The logins are comma seperated ('test1,test2,rofl,wtf,omfg')
     try:
+        if not users or not repos:
+            logger.info("Users and Repos are required parameters.")
         session = new_session()
-        plot_comparison(logins, repositories, session)
+        plot_comparison(users, repos, session)
     except KeyboardInterrupt:
         logger.info("CTRL-C Exiting Gracefully")
         sys.exit(1)

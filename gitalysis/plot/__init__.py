@@ -82,7 +82,7 @@ def plot_comparison(logins, repositories, session):
     os.makedirs(path, exist_ok=True)
 
     contributors = []
-    for login in logins.split(','):
+    for login in logins:
         contributor = session.query(Contributor) \
             .filter(Contributor.login.ilike(login)) \
             .one()
