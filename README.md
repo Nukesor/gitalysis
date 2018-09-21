@@ -34,7 +34,7 @@ Sleep rhythm and working hour analysis:
 
 - `gitalizer plot user [login]` Plot all graphs for a specific github user.
 - `gitalizer plot user_for_repositories [login] [repositories...]` Get statistics of an user for specific repositories.
-- `gitalizer plot comparison [logins...] [repositories...]` Get statistics of several user for specific repositories
+- `gitalizer plot comparison --users [logins...] --repos [repo-full-name...]` Get statistics of several user for specific repositories
 
 **analyse**:
 - `gitalizer analyse punchcard` Delete a repository with all it's commit

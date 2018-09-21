@@ -47,7 +47,6 @@ def user_for_repositories(login, repositories):
 @click.argument('--repos', cls=OptionEatAll)
 def comparison(users, repos):
     """Get statistics of several user for specific repositories."""
-    # The logins are comma seperated ('test1,test2,rofl,wtf,omfg')
     try:
         if not users or not repos:
             logger.info("Users and Repos are required parameters.")

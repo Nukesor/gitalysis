@@ -5,7 +5,7 @@ setup(
     name='gitalysis',
     author='Arne Beer',
     author_email='privat@arne.beer',
-    version='0.1.0',
+    version='0.1.1',
     description='The data mining tool for data from Gitalizer. Used to analyse privacy implications of exposing Git metadata',
     keywords='git github metadata data-mining privacy',
     url='http://github.com/nukesor/gitalizer',
@@ -13,10 +13,6 @@ setup(
     install_requires=[
         # Models, Database and config
         'gitalizer~=0.1',
-
-        # Time handling
-        'pendulum~=1.4',
-        'pytzdata~=2018.3',
 
         # Location handling
         'cython~=0.28',
@@ -31,10 +27,6 @@ setup(
         'numpy~=1.7',
         'pandas~=0.21',
         'seaborn~=0.8',
-        'cython~=0.28',
-
-        # Logging
-        'raven',
     ],
     classifiers=[
         'License :: OSI Approved :: MIT License',
